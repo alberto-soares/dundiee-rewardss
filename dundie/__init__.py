@@ -10,7 +10,7 @@
 #'dundie'
 #>>> exit()
 
-print("hello initializing dundie...")
+#print("hello initializing dundie...")
 
 # ********************
 # * Resultado depois *
