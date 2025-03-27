@@ -55,7 +55,8 @@ watch:
 #
 #[Tue Oct 22 12:31:34 2024] Running: py.test -vv -s tests/
 #=========== test session starts ============
-#platform darwin -- Python 3.11.5, pytest-8.3.3, pluggy-1.5.0 -- /Users/albertosoares/Projetos/python_dundie_rewardss/.venv/bin/python
+#platform darwin -- Python 3.11.5, pytest-8.3.3, pluggy-1.5.0 -- 
+#/Users/albertosoares/Projetos/python_dundie_rewardss/.venv/bin/python
 #cachedir: .pytest_cache
 #rootdir: /Users/albertosoares/Projetos/python_dundie_rewardss
 #collected 1 item                           
@@ -68,7 +69,8 @@ watch:
 # * Apos a criacao do project.toml erro ao executar *
 # ***************************************************
 #
-#(.venv) (base) albertosoares@MacBook-Pro-de-Alberto python_dundie_rewardss % make watch
+#(.venv) (base) albertosoares@MacBook-Pro-de-Alberto python_dundie_rewardss % 
+# make watch
 #Traceback (most recent call last):
 #  File "/Users/albertosoares/Projetos/python_dundie_rewardss/.venv/bin/ptw", 
 #line 8, in <module> sys.exit(main())
