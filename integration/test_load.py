@@ -9,7 +9,7 @@ def test_load():
 
     out = check_output(
         ["dundie", "load", "tests/assets/people.csv"]
-        ).decode("utf-8").split("\n")
+    ).decode("utf-8").split("\n")
     #breakpoint()
     assert len(out) - 1 == 3
 #
