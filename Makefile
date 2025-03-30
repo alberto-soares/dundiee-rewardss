@@ -42,6 +42,14 @@ test:
 #	@.venv/bin/pytest -vv -s tests/ ==> antes da configuracao do pytest
 	@.venv/bin/pytest -vv -s
 
+testci:
+	@.venv/bin/pytest -v --junitxml=test-result.xml 
+#                              |=> cria arquivo .xml no github
+#(.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss % 
+#make testci
+#------- generated xml file: 
+#/Users/albertosoares/Projetos/dundiee-rewardss/test-result.xml -----------
+
 watch:
 #	@.venv/bin/ptw -- -vv -s tests/ ==> antes da configuracao do pytest
 	@.venv/bin/ptw -- -vv -s
