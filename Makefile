@@ -40,10 +40,11 @@ ipython:
 
 test:
 #	@.venv/bin/pytest -vv -s tests/ ==> antes da configuracao do pytest
-	@.venv/bin/pytest -vv -s
+	@.venv/bin/pytest -s
 
-testci:
-	@.venv/bin/pytest -v --junitxml=test-result.xml 
+#testci:
+#	@pytest -v --junitxml=test-result.xml
+#	@.venv/bin/pytest -v --junitxml=test-result.xml 
 #                              |=> cria arquivo .xml no github
 #(.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss % 
 #make testci

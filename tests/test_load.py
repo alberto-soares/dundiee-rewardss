@@ -83,7 +83,7 @@ from .constants import PEOPLE_FILE
 
 def test_load_positive_has_2_people(request):
     """Test function load"""
-    assert len(load(PEOPLE_FILE)) == 2 # --junit.xml file erro em /tmp/erro.xml
+    assert len(load(PEOPLE_FILE)) == 3 # --junit.xml file erro em /tmp/erro.xml
 #(.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss % 
 #pytest -s -m "unit" --junitxml=/tmp/erro.xml
 # --------------- generated xml file: /tmp/erro.xml --------------------------
