@@ -5,3 +5,11 @@ testpaths = [
     "tests",
     "integration",
 ]
+
+
+[tool.flake8]
+exclude = ".venv,build,.vscodelocal,modulo*.py"
+max-line-length = 79
+# extend-ignore = "E265,W291,303"
+
+

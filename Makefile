@@ -1,4 +1,4 @@
-.PHONY: install virtualenv ipython clean test
+.PHONY: install virtualenv ipython clean test pflake8
 
 
 install:
@@ -37,6 +37,9 @@ virtualenv:
 
 ipython:
 	@.venv/bin/ipython
+
+lint: # make: *** [lint] Error 1 ==> so para de falhar zerando os erros
+	@.venv/bin/pflake8
 
 test:
 #	@.venv/bin/pytest -vv -s tests/ ==> antes da configuracao do pytest

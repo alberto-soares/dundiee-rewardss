@@ -1,1 +1,3 @@
 pytest # exemplo de test runner
+flake8
+pyproject-flake8

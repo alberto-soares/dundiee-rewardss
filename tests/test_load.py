@@ -30,7 +30,7 @@ from .constants import PEOPLE_FILE
 
 #@pytest.fixture(scope="function", autouse=True)
                  #|==> mudando para module roda antes e depois do modulo 
-# @pytest.fixture(scope="function")#, autouse=True)# so a funcao cria o new_file
+# @pytest.fixture(scope="function")#, autouse=True)# so a funcao cria new_file
 #def create_new_file(tmpdir):
     # ************************************************
     # * Simplesmente criando e escrevendo no arquivo *

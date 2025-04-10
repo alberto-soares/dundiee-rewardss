@@ -8,7 +8,8 @@ import argparse
 #import sys
 #sys.argv # Recebe os parametros enviados do terminal
 
-from dundie.core import load # import absoluto
+from dundie.core import load # noqa
+#                    |==> import absoluto
 #from .core import load # import relativo
 
 def main():
