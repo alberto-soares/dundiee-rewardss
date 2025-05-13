@@ -41,6 +41,10 @@ ipython:
 lint: # make: *** [lint] Error 1 ==> so para de falhar zerando os erros
 	@.venv/bin/pflake8
 
+fmt:
+	@.venv/bin/isort dundie tests integration
+	@.venv/bin/black dundie tests integration
+
 test:
 #	@.venv/bin/pytest -vv -s tests/ ==> antes da configuracao do pytest
 	@.venv/bin/pytest -s

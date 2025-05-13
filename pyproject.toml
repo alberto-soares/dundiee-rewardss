@@ -10,6 +10,15 @@ testpaths = [
 [tool.flake8]
 exclude = ".venv,build,.vscodelocal,modulo*.py"
 max-line-length = 79
-# extend-ignore = "E265,W291,303"
+extend-ignore = "E501,E122,E131,E304"
 
+[tool.black]
+line-length = 79
+target-version = ["py36", "py37"]
+exclude = ".eggs,.git,.venv,build,.vscodelocal,modulo*.py"
+
+[tool.isort]
+profile = "black"
+src_paths = ["dundie", "tests", "integration"]
+multi_line_output = 3  # Vertical_Hanging_Indent
 
