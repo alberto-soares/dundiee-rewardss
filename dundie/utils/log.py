@@ -1,3 +1,4 @@
+"""Module"""
 import logging
 import os
 from logging import handlers
@@ -66,14 +67,14 @@ def get_logger(logfile="dundie.log"):
     """Returns a configured logger."""
     # ch = logging.StreamHandler()  # Console/terminal/stderr
     # ch.setLevel(log_level)
-    fh = handlers.RotatingFileHandler(
+    abc = handlers.RotatingFileHandler(
         logfile,
         maxBytes=300,  # 10**6
         backupCount=10,
     )
-    fh.setLevel(LOG_LEVEL)
+    abc.setLevel(LOG_LEVEL)
     # ch.setFormatter(fmt)
-    fh.setFormatter(fmt)
+    abc.setFormatter(fmt)
     # log.addHandler(ch)
-    log.addHandler(fh)
+    log.addHandler(abc)
     return log

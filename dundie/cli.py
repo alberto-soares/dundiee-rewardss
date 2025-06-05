@@ -1,4 +1,4 @@
-# pylint: disable=unused-import
+"""Module"""  # pylint: disable=unused-import
 # ***********
 # * Etapa 1 *
 # ***********
@@ -18,6 +18,7 @@ from dundie.core import load  # noqa
 
 
 def main():
+    """Module"""
     parser = argparse.ArgumentParser(
         description="Dunder Mifflin Rewards CLI",
         epilog="Enjoy and use with cautions.",

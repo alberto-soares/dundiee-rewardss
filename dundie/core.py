@@ -19,19 +19,19 @@ def load(filepath):
     'B'
     """
 
-    # *****************************************************************************
-    # * Acima exemplo usando o comando doctest >>> len(load('assets/people.csv')) *
-    # * 3                                                                         *
-    # *****************************************************************************
+    # *************************************************************************
+    # * Acima exemplo usa o comando doctest >> len(load('assets/people.csv')) *
+    # * 3                                                                     *
+    # *************************************************************************
     #
     #
     try:
         with open(filepath) as file_:
             return file_.readlines()
             # return [line.strip() for line in file_.readlines()]
-    except FileNotFoundError as e:
-        log.error(str(e))
-        raise e
+    except FileNotFoundError as ufo:
+        log.error(str(ufo))
+        raise ufo
 
 
 # subcommands = {

@@ -1,3 +1,4 @@
+"""Module"""
 from dundie.cli import main  # |==> import absoluto
 
 # from .cli import main |==> import relativo

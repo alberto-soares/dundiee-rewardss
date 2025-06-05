@@ -8,14 +8,14 @@ testpaths = [
 
 
 [tool.flake8]
-exclude = ".venv,build,.vscodelocal,modulo*.py"
+exclude = ".venv,build,.vscodelocal,modulo1.py,modulo2.py,modulo3.py"
 max-line-length = 79
-extend-ignore = "E501,E122,E131,E304"
+
 
 [tool.black]
 line-length = 79
 target-version = ["py36", "py37"]
-exclude = ".eggs,.git,.venv,build,.vscodelocal,modulo*.py"
+exclude = ".eggs,.git,.venv,build,.vscodelocal,modulo1.py,modulo2.py,modulo3.py"
 
 [tool.isort]
 profile = "black"

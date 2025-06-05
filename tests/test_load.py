@@ -1,4 +1,4 @@
-# pylint: disable=unused-argument
+"""Module"""  # pylint: disable=unused-argument
 import pytest
 
 from dundie.core import load
@@ -50,24 +50,17 @@ from .constants import PEOPLE_FILE
 # def test_load():
 # def test_load(create_new_file): # so essa funcao cria o new_file
 #    """Test function load"""
-
 # if x:
 # request.addfinalizer(lambda: print("Terminou"))
 # else
 #   ...
 #
 # with open("arquivo_indesejado.txt", "w") as file_: # side_effect
-
 # with open(f"arquivo_indesejado-{uuid.uuid4()}.txt", "w") as file_:
 # |==> nome dinamico
-
 # filepath = f"arquivo_indesejado-{uuid.uuid4()}.txt"
 # request.addfinalizer(lambda: os.unlink(filepath))
-
-
 # with open(filepath, "w") as file_:
-
-
 #    file_.write("dados uteis somente para o teste")
 # *****************************************
 # * Boas praticas relacionadas com assert *

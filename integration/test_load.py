@@ -1,3 +1,4 @@
+"""Module"""
 from subprocess import CalledProcessError, check_output
 
 import pytest
