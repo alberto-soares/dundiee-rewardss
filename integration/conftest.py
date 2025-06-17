@@ -1,4 +1,5 @@
 """Module"""
+
 MARKER = """\
 unit: Mark unit tests
 integration: Mark integration tests

@@ -1,4 +1,5 @@
 """Module"""  # pylint: disable=unused-argument
+
 import pytest
 
 from dundie.core import load
