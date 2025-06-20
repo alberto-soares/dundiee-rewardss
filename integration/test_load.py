@@ -39,11 +39,9 @@ import pytest
 def test_load_positive_call_load_command():
     """Test command load"""
 
-    out = (
-        check_output(["dundie", "load", "tests/assets/people.csv"])
-        .decode("utf-8")
-        .split("\n")
-    )
+    out = check_output(
+        ["dundie", "load", "tests/assets/people.csv"]
+    ).decode("utf-8").split("\n")
     # breakpoint()
     assert len(out) - 1 == 3
 
