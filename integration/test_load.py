@@ -38,7 +38,6 @@ import pytest
 @pytest.mark.medium
 def test_load_positive_call_load_command():
     """Test command load"""
-
     out = (
         check_output(["dundie", "load", "tests/assets/people.csv"])
         .decode("utf-8")

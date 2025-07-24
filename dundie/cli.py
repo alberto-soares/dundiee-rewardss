@@ -14,7 +14,6 @@ from dundie.core import load  # noqa
 # sys.argv # Recebe os parametros enviados do terminal
 
 
-#                    |==> import absoluto
 # from .core import load # import relativo
 
 
@@ -35,18 +34,15 @@ def main():
         "filepath", type=str, help="File path to load", default=None
     )
     args = parser.parse_args()
-    #    try:
+    # try:
     # globals()[args.subcommand](args.filepath)
     print(*globals()[args.subcommand](args.filepath), end="")
+    # |--> alteracao para corrigir o return no core.py
+
+    # except KeyError:
+    #    print("Subcommand is invalid.")
 
 
-# |--> alteracao para corrigir o return no core.py
-
-
-#
-# except KeyError:
-#    print("Subcommand is invalid.")
-#
 # print(args)
 #
 #
@@ -59,13 +55,13 @@ def main():
 # Arthur Santos, Presi, Vice-Presidente, arthur@dundlermifflin.com
 # Victor Santos, Presi, Vice-Presidente, victor@dundlermifflin.com
 #
-# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss
 #
 # ********************
 # * Execucao Etapa 1 *
 # ********************
 #
-# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss
 # dundie load people.csv
 # hello initializing dundie...
 # Namespace(subcommand='load', filepath='people.csv')
