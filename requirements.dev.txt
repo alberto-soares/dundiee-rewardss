@@ -4,5 +4,11 @@ ipdb
 pudb
 pytest-watch
 
+# Code Quality
+flake8   # pflak8 --exclude=.venv,build ==> exclui as pastas .venv e build
+pyproject-flake8
+black
+isort
+
 # Install project as editable
 -e .

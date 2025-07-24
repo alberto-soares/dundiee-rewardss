@@ -1,1 +1,3 @@
-PEOPLE_FILE = 'tests/assets/people.csv'
+"""Module"""
+
+PEOPLE_FILE = "tests/assets/people.csv"
