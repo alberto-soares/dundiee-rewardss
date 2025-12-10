@@ -52,6 +52,7 @@ test:
 #/Users/albertosoares/Projetos/dundiee-rewardss/test-result.xml -----------
 
 watch:
+#	@ls **/*.py | entr pytest
 #	@.venv/bin/ptw -- -vv -s tests/ ==> antes da configuracao do pytest
 	@.venv/bin/ptw -- -vv -s
 # *******************************************************
