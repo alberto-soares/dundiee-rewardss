@@ -126,7 +126,7 @@ def load(filepath):
 # ok
 # 1 items had no tests:
 #    core
-# 1 items passed all tests:
+#  items passed all tests:
 #   1 tests in core.load
 # 1 tests in 2 items.
 # 1 passed and 0 failed.
@@ -145,8 +145,8 @@ def load(filepath):
 # Expecting:
 #    2
 # **********************************************************************
-# File "/Users/albertosoares/Projetos/dundiee-rewardss/dundie/core.py",
-# line 14, in core.load
+# File "/Users/albertosoares/Projetos/dundiee-rewardss/dundie/core.py",line14,
+# in core.load
 # Failed example:
 #    len(load('assets/people.csv'))
 # Expected:

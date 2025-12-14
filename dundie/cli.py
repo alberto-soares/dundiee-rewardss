@@ -9,12 +9,12 @@ import argparse
 # import sys
 # sys.argv # Recebe os parametros enviados do terminal
 
-from dundie.core import load  # import absoluto
-# from .core import load  # import relativo
+from dundie.core import load # import absoluto
+# from .core import load # import relativo
 
 
 def main():
-    """Metodo"""
+    """Module"""
     parser = argparse.ArgumentParser(
         description="Dunder Mifflin Rewards CLI",
         epilog="Enjoy and use with cautions.",
@@ -33,7 +33,7 @@ def main():
         default=None
     )
     args = parser.parse_args()
-
+    
     # try:
     # globals()[args.subcommand](args.filepath)
     print(*globals()[args.subcommand](args.filepath), end="")

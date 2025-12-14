@@ -43,7 +43,7 @@ test:
 	@.venv/bin/pytest -s
 
 #testci:
-#	@pytest -v --junitxml=test-result.xml
+#	 @pytest -v --junitxml=test-result.xml
 #	@.venv/bin/pytest -v --junitxml=test-result.xml 
 #                              |=> cria arquivo .xml no github
 #(.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss % 

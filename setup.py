@@ -60,7 +60,7 @@ setup(
 )
 
 # *****************************************************
-# * Resultado apos executar python -m dundie e dundie * 
+# * Resultado apos executar python -m dundie e dundie *
 # *****************************************************
 #
 # (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
@@ -68,15 +68,14 @@ setup(
 # hello initializing dundie...
 # Executing entry point for dundie... nova informacao
 #
-# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
-# dundie
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss % dundie
 # hello initializing dundie...
 # Executing dundie from entry point.
-#   
+#
 # *****************************************************
 # * Resultado apos executar pip install -e '.[dev]'   *
 # *****************************************************
-# 
+#
 # (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
 # pip install -e '.[dev]'
 # Obtaining file:///Users/albertosoares/Projetos/dundiee-rewardss
@@ -170,7 +169,5 @@ setup(
 #    Uninstalling dundie-0.1.0:
 #      Successfully uninstalled dundie-0.1.0
 # Successfully installed dundie-0.1.0
-
 # pyproject
-
 # external build tools (poetry, flit)
