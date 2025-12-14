@@ -4,8 +4,8 @@
 
 """Core module of dundie"""
 
-from dundie.utils.log import get_logger
-
+from dundie.utils.log import get_logger  # import absoluto
+# from .utils.log import get_logger  # import relativo
 log = get_logger()
 
 
@@ -17,18 +17,17 @@ def load(filepath):
     >>> load('assets/people.csv')[0][0]
     'B'
     """
-
-# *****************************************************************************
-# * Acima exemplo usando o comando doctest >>> len(load('assets/people.csv')) *
-# * 3                                                                         *
-# *****************************************************************************
-    try:        
+# ***************************************************************************
+# * Acima exemplo usando o comando doctest >>> len(load('assets/people.csv' *
+# * ))3                                                                     *
+# ***************************************************************************
+    try:
         with open(filepath) as file_:
             return file_.readlines()
             # return [line.strip() for line in file_.readlines()]
-    except FileNotFoundError as e:
-        log.error(str(e))
-        raise e
+    except FileNotFoundError as efo:
+        log.error(str(efo))
+        raise efo
 
 # subcommands = {
 #    "load": load
@@ -191,4 +190,35 @@ def load(filepath):
 #
 #
 #
-#
+# ***********************************************************************
+# * Execucao usando o exemplo do doctest para lenght = 3 e [0][0] = 'X' *
+# ***********************************************************************
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
+# python -m doctest -v dundie/core.py
+# Trying:
+#    len(load('assets/people.csv'))
+# Expecting:
+#    3
+# ok
+# Trying:
+#    load('assets/people.csv')[0][0]
+# Expecting:
+#    'X'
+# **********************************************************************
+# File "/Users/albertosoares/Projetos/dundiee-rewardss/dundie/core.py",
+# line 17, in core.load
+# Failed example:
+#    load('assets/people.csv')[0][0]
+# Expected:
+#    'X'
+# Got:
+#    'B'
+# 1 items had no tests:
+#    core
+# **********************************************************************
+# 1 items had failures:
+#   1 of   2 in core.load
+# 2 tests in 2 items.
+# 1 passed and 1 failed.
+# ***Test Failed*** 1 failures.
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %

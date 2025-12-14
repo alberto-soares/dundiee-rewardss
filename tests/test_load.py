@@ -26,7 +26,7 @@ from .constants import PEOPLE_FILE
 # A funcao precisa iniciar com a palavra test #
 
 # *************************************************
-# * Exemplo de aplicacao pytest.fixture no modulo * 
+# * Exemplo de aplicacao pytest.fixture no modulo *
 # *************************************************
 
 # @pytest.fixture(scope="function", autouse=True)
@@ -90,6 +90,8 @@ def test_load_positive_has_2_people(request):
 
 @pytest.mark.unit
 @pytest.mark.high
+
+
 def test_load_positive_first_name_starts_with_b(request):
     """Test function load"""
 #    assert load(PEOPLE_FILE)[0][0] == 'B'
@@ -104,8 +106,6 @@ def test_load_positive_first_name_starts_with_b(request):
 #
 #    assert len(load(PEOPLE_FILE)) == 3
 #    assert load(PEOPLE_FILE)[0][0] == 'B'
-
-
 #
 # *********************
 # * pytest execucao 1 *

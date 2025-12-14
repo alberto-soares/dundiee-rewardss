@@ -1,6 +1,9 @@
+
+"""Module"""
 # setuptools
 import os
 from setuptools import setup , find_packages
+
 
 def read(*paths):  # Recebe uma lista com todos argumentos passados
     """Read the contents of a text file safely.
@@ -166,8 +169,5 @@ setup(
 #    Uninstalling dundie-0.1.0:
 #      Successfully uninstalled dundie-0.1.0
 # Successfully installed dundie-0.1.0
-
-
 # pyproject
-
 # external build tools (poetry, flit)
