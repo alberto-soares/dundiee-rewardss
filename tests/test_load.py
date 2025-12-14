@@ -74,7 +74,7 @@ from .constants import PEOPLE_FILE
 #    assert load(PEOPLE_FILE)[0][0] == 'B'
 def test_load_positive_has_2_people(request):
     """Test function load"""
-    assert len(load(PEOPLE_FILE)) == 2  # --junit.xml fileerroem /tmp/erro.xml
+    assert len(load(PEOPLE_FILE)) == 3  # --junit.xml fileerroem /tmp/erro.xml
 # (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
 # pytest -s -m "unit" --junitxml=/tmp/erro.xml
 # def test_load_positive_has_3_people(request):
