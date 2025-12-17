@@ -2,12 +2,12 @@
 """Module"""
 # setuptools
 import os
-from setuptools import setup , find_packages
+from setuptools import setup, find_packages
 
 
 def read(*paths):  # Recebe uma lista com todos argumentos passados
     """Read the contents of a text file safely.
-    >>> read("dundie", "VERSION") 
+    >>> read("dundie", "VERSION")
     '0.1.0'
     >>> read("README.md")
     ...
@@ -26,12 +26,13 @@ def read_requirements(path):
         if not line.startswith(("#", "git+", '"', '-'))
     ]
 
+
 setup(
     name="dundie",
     version="0.1.0",
-           # x MAJOR
-             # y MINOR
-               # z PATCH
+    #        x MAJOR
+    #          y MINOR
+    #            z PATCH
     description="Reward Point System for Dunder Mifflin",
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
@@ -43,19 +44,19 @@ setup(
         "console_scripts": [
             "dundie = dundie.__main__:main"
             #   |        | > nome do modulo callable apontado no programa
-            #   | > nome do binario     
+            #   | > nome do binario
         ]
     },
     install_requires=read_requirements("requirements.txt"),
     extras_require={
         "test": read_requirements("requirements.test.txt"),
-           # "pytest"
-           # pip install -e '.[dev]' p/ terminal zsh
+        #  "pytest"
+        # pip install -e '.[dev]' p/ terminal zsh
         "dev": read_requirements("requirements.dev.txt")
-           # "ipython",#e possivel indicar versao Ex.: <=8.32.0 pinar a versao
-           # "ipdb",
-           # "pudb"
-        
+        # "ipython",#e possivel indicar versao Ex.: <=8.32.0 pinar a versao
+        # "ipdb",
+        # "pudb"
+
     }
 )
 

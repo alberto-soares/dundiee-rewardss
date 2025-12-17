@@ -1,15 +1,19 @@
 """Module"""
+
 # ***********
 # * Etapa 1 *
 # ***********
 
 import argparse
+
+from dundie.core import load  # noqa  # import absoluto
+
 # print("Executing entry point for dundie... nova informacao")
 
 # import sys
 # sys.argv # Recebe os parametros enviados do terminal
 
-from dundie.core import load # import absoluto
+
 # from .core import load # import relativo
 
 
@@ -24,16 +28,13 @@ def main():
         type=str,
         help="The subcommand to run",
         choices=("load", "show", "send"),
-        default="help"
+        default="help",
     )
     parser.add_argument(
-        "filepath",
-        type=str,
-        help="File path to load",
-        default=None
+        "filepath", type=str, help="File path to load", default=None
     )
     args = parser.parse_args()
-    
+
     # try:
     # globals()[args.subcommand](args.filepath)
     print(*globals()[args.subcommand](args.filepath), end="")
@@ -43,6 +44,8 @@ def main():
     #    print("Subcommand is invalid.")
 
     # print(args)
+
+
 #
 #
 # ********************************************************
@@ -64,4 +67,4 @@ def main():
 # dundie load people.csv
 # hello initializing dundie...
 # Namespace(subcommand='load', filepath='people.csv')
-    # print("Executing dundie from entry point.")
+# print("Executing dundie from entry point.")

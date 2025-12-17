@@ -1,5 +1,7 @@
 """Module"""
+
 from subprocess import check_output
+
 import pytest
 
 
@@ -8,12 +10,16 @@ import pytest
 def test_load():
     """Test command load"""
 
-    out = check_output(
-        ["dundie", "load", "tests/assets/people.csv"]
-    ).decode("utf-8").split("\n")
+    out = (
+        check_output(["dundie", "load", "tests/assets/people.csv"])
+        .decode("utf-8")
+        .split("\n")
+    )
     # breakpoint()
-#    assert len(out) == 3
+    #    assert len(out) == 3
     assert len(out) - 1 == 3
+
+
 #
 
 # ***************************************************************
@@ -55,7 +61,7 @@ def test_load():
 # E       AssertionError: assert 4 == 3
 # E        +  where 4 = len(
 # ['Bruna Polliana, Presi, Presidente, bruna@dundlermifflin.com',
-# ' Arthur Santos, Presi, Vice-Presidente, arthur@dundlermifflin.com', 
+# ' Arthur Santos, Presi, Vice-Presidente, arthur@dundlermifflin.com',
 # ' Victor Santos, Presi, Vice-Presidente, victor@dundlermifflin.com ', ''])
 
 # integration/test_load.py:14: AssertionError
@@ -84,20 +90,20 @@ def test_load():
 # Victor Santos, Presi, Vice-Presidente, victor@dundlermifflin.com', '']
 #
 # In [8]: check_output(["dundie", "load", "tests/assets/people.csv"]).decode()
-# Out[8]: 'Bruna Polliana, Presi, Presidente, bruna@dundlermifflin.com 
+# Out[8]: 'Bruna Polliana, Presi, Presidente, bruna@dundlermifflin.com
 # Arthur Santos, Presi, Vice-Presidente, arthur@dundlermifflin.com
 # Victor Santos, Presi, Vice-Presidente, victor@dundlermifflin.com\n'
 #
 # In [9]: check_output(
 # ["dundie", "load", "tests/assets/people.csv"]).decode("utf-8")
 # Out[9]: 'Bruna Polliana, Presi, Presidente, bruna@dundlermifflin.com
-# Arthur Santos, Presi, Vice-Presidente, arthur@dundlermifflin.com 
+# Arthur Santos, Presi, Vice-Presidente, arthur@dundlermifflin.com
 # Victor Santos, Presi, Vice-Presidente, victor@dundlermifflin.com\n'
 #
 # In [10]: check_output(
 # ["dundie", "load", "tests/assets/people.csv"]).decode("utf-8").split("\n")
 # Out[10]:
-# ['Bruna Polliana, Presi, Presidente, bruna@dundlermifflin.com 
+# ['Bruna Polliana, Presi, Presidente, bruna@dundlermifflin.com
 # Arthur Santos, Presi, Vice-Presidente, arthur@dundlermifflin.com
 # Victor Santos, Presi, Vice-Presidente, victor@dundlermifflin.com',
 # '']

@@ -1,8 +1,11 @@
 """Module"""
+
 # import os
 # import uuid
 import pytest
+
 from dundie.core import load
+
 from .constants import PEOPLE_FILE
 
 # A funcao precisa iniciar com a palavra test #
@@ -30,7 +33,7 @@ from .constants import PEOPLE_FILE
 # *************************************************
 
 # @pytest.fixture(scope="function", autouse=True)
-                #  |==> mudando para module roda antes e depois do modulo
+#  |==> mudando para module roda antes e depois do modulo
 # @pytest.fixture(scope="function")#, autouse=True)# so a funcao criaonew_file
 # def create_new_file(tmpdir):
 # ************************************************
@@ -75,6 +78,8 @@ from .constants import PEOPLE_FILE
 def test_load_positive_has_2_people(request):
     """Test function load"""
     assert len(load(PEOPLE_FILE)) == 3  # --junit.xml fileerroem /tmp/erro.xml
+
+
 # (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
 # pytest -s -m "unit" --junitxml=/tmp/erro.xml
 # def test_load_positive_has_3_people(request):
@@ -90,12 +95,12 @@ def test_load_positive_has_2_people(request):
 
 @pytest.mark.unit
 @pytest.mark.high
-
-
 def test_load_positive_first_name_starts_with_b(request):
     """Test function load"""
-#    assert load(PEOPLE_FILE)[0][0] == 'B'
-    assert load(PEOPLE_FILE)[0][0] == 'J'
+    #    assert load(PEOPLE_FILE)[0][0] == 'B'
+    assert load(PEOPLE_FILE)[0][0] == "J"
+
+
 # ****************************************************
 # * Boas praticas relacionadas a criacao de arquivos *
 # ****************************************************

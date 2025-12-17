@@ -1,4 +1,5 @@
 """Module"""
+
 import pytest
 
 MARKER = """\
@@ -12,9 +13,9 @@ low: Low Priority
 
 def pytest_configure(config):
     """Module"""
-#    1 / 0 INTERNALERROR> ZeroDivisionError: division by zero
+    #    1 / 0 INTERNALERROR> ZeroDivisionError: division by zero
     for line in MARKER.split("\n"):
-        config.addinivalue_line('markers', line)
+        config.addinivalue_line("markers", line)
 
 
 @pytest.fixture(autouse=True)
@@ -23,6 +24,7 @@ def go_to_tmpdir(request):  # injecao de dependencias
     tmpdir = request.getfixturevalue("tmpdir")
     with tmpdir.as_cwd():
         yield  # protocolo de generators
+
 
 # (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
 # ipython --profile=d5p03

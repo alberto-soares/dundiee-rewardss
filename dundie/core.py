@@ -5,6 +5,7 @@
 """Core module of dundie"""
 
 from dundie.utils.log import get_logger  # import absoluto
+
 # from .utils.log import get_logger  # import relativo
 log = get_logger()
 
@@ -17,10 +18,10 @@ def load(filepath):
     >>> load('assets/people.csv')[0][0]
     'B'
     """
-# ***************************************************************************
-# * Acima exemplo usando o comando doctest >>> len(load('assets/people.csv' *
-# * ))3                                                                     *
-# ***************************************************************************
+    # **********************************************
+    # * Acima exemplo usando o comando doctest >>> *
+    # * len(load('assets/people.csv' * * ))3       *
+    # **********************************************
     try:
         with open(filepath) as file_:
             return file_.readlines()
@@ -28,6 +29,7 @@ def load(filepath):
     except FileNotFoundError as efo:
         log.error(str(efo))
         raise efo
+
 
 # subcommands = {
 #    "load": load

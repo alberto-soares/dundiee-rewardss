@@ -1,1 +1,5 @@
 pytest # exemplo de test runner
+flake8
+pyproject-flake8
+black
+isort
