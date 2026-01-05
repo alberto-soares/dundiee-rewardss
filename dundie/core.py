@@ -3,7 +3,9 @@
 # ***********
 
 """Core module of dundie"""
+from csv import reader  # cria um objeto para carregar o arquivo
 
+from dundie.database import add_person, commit, connect
 from dundie.utils.log import get_logger  # import absoluto
 
 # from .utils.log import get_logger  # import relativo
@@ -23,12 +25,31 @@ def load(filepath):
     # * len(load('assets/people.csv' * * ))3       *
     # **********************************************
     try:
-        with open(filepath) as file_:
-            return file_.readlines()
-            # return [line.strip() for line in file_.readlines()]
+        #        with open(filepath) as file_:
+        #            return file_.readlines()
+        # return [line.strip() for line in file_.readlines()]
+        csv_data = reader(open(filepath))  # funcao reader recebe dados do .csv
     except FileNotFoundError as efo:
         log.error(str(efo))
         raise efo
+
+    db_ = connect()
+    people = []
+    headers = ["name", "dept", "role", "email"]
+    for line in csv_data:
+        person_data = dict(zip(headers, [item.strip() for item in line]))
+        pk = person_data.pop("email")
+        person, created = add_person(db_, pk, person_data)
+        #        commit(db_)
+        #        person["created"] = created
+        #        person["email"] = pk
+        return_data = person.copy()
+        return_data["created"] = created
+        return_data["email"] = pk
+        people.append(return_data)
+
+    commit(db_)
+    return people
 
 
 # subcommands = {
@@ -224,3 +245,28 @@ def load(filepath):
 # 1 passed and 1 failed.
 # ***Test Failed*** 1 failures.
 # (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
+#
+# ********************************
+# * ipython para a funcao reader *
+# ********************************
+#
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
+# ipython --profile=d5p08
+# Python 3.11.5 (main, Sep 11 2023, 08:31:25) [Clang 14.0.6 ]
+# Type 'copyright', 'credits' or 'license' for more information
+# IPython 8.32.0 -- An enhanced Interactive Python. Type '?' for help.
+#
+# IPython profile: d5p08
+#
+# In [1]: from csv import reader
+#
+# In [2]: reader(open("assets/people.csv"))
+# Out[2]: <_csv.reader at 0x10745fd80>
+#
+# In [3]: list(reader(open("assets/people.csv")))
+# Out[3]:
+# [['Jim Halpert', ' Sales', ' Salesman', ' jim@dundlermifflin.com'],
+#  ['Dwight Schrute', ' Sales', ' Manager', ' schrute@dundlermifflin.com'],
+#  ['Gabe Lewis', ' Directory', ' Manager', ' glewis@dundlermifflin.com ']]
+#
+# In [4]: exit

@@ -1,23 +1,68 @@
 """Module"""
 
-from subprocess import check_output
+# from subprocess import check_output
 
 import pytest
+from click.testing import CliRunner  # Usando CliRunner do click testing
+
+from dundie.cli import load, main
+
+from .constants import PEOPLE_FILE
+
+cmd = CliRunner()
+# @pytest.mark.integration
+# @pytest.mark.medium
+# def test_load():
+#    """Test command load"""
+
+#    out = (
+#        check_output(["dundie", "load", PEOPLE_FILE])
+#        .decode("utf-8")
+#        #    .split("\n")
+#    )
+#     breakpoint()
+#       assert len(out) == 3
+#     assert len(out) - 1 == 3
+
+#    assert "Dunder Mifflin Associates" in out
 
 
 @pytest.mark.integration
 @pytest.mark.medium
-def test_load():
+def test_load_positive_call_load_command():
     """Test command load"""
 
-    out = (
-        check_output(["dundie", "load", "tests/assets/people.csv"])
-        .decode("utf-8")
-        .split("\n")
-    )
+    out = cmd.invoke(load, PEOPLE_FILE)
+    # (
+    #         check_output(["dundie", "load", PEOPLE_FILE])
+    #        .decode("utf-8")
+    #    .split("\n")
+    #    )
     # breakpoint()
     #    assert len(out) == 3
-    assert len(out) - 1 == 3
+    # assert len(out) - 1 == 3
+
+    assert "Dunder Mifflin Associates" in out.output
+
+
+@pytest.mark.integration
+@pytest.mark.medium
+@pytest.mark.parametrize("wrong_command", ["loady", "carrega", "start"])
+def test_load_negative_call_load_command_with_wrong_params(wrong_command):
+    """Test command load"""
+    #    with pytest.raises(CalledProcessError) as error:
+    #        check_output(["dundie", wrong_command, PEOPLE_FILE]).decode(
+    #            "utf-8"
+    #        ).split("\n")
+    # breakpoint()
+    #    assert len(out) == 3
+    # assert len(out) - 1 == 3
+
+    out = cmd.invoke(main, wrong_command, PEOPLE_FILE)  # out captura o erro
+
+    #    assert "status 2" in str(error.getrepr())
+    assert out.exit_code != 0
+    assert f"No such command '{wrong_command}'." in out.output
 
 
 #
@@ -199,3 +244,57 @@ def test_load():
 # 'tests',
 # '']
 # In [8]: exit
+#
+# ******************************
+# * Execucao usando subprocess *
+# ******************************
+#
+#
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
+# dundie load assets/people.csv
+#
+#                      Dunder Mifflin Associates
+# ┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃ name           ┃ dept      ┃ role     ┃ e-mail                     ┃
+# ┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+# │ Jim Halpert    │ Sales     │ Salesman │ jim@dundlermifflin.com     │
+# │ Dwight Schrute │ Sales     │ Manager  │ schrute@dundlermifflin.com │
+# │ Gabe Lewis     │ Directory │ Manager  │ glewis@dundlermifflin.com  │
+# └────────────────┴───────────┴──────────┴────────────────────────────┘
+#
+# ******************************************
+# * Execucao apos alteracao para CliRunner *
+# ******************************************
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
+# dundie loady assets/people.csv
+#
+# Usage: dundie [OPTIONS] COMMAND [ARGS].
+#
+# Try 'dundie --help' for help
+# ╭─ Error ─────────────────────────────────────────────────────────────╮
+# │ No such command 'loady'.                                            │
+# ╰─────────────────────────────────────────────────────────────────────╯
+#
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
+# make test
+# ============================ test session starts ======================
+# platform darwin -- Python 3.11.5, pytest-8.3.5, pluggy-1.5.0 --
+# /Users/albertosoares/Projetos/dundiee-rewardss/.venv/bin/python
+# cachedir: .pytest_cache
+# rootdir: /Users/albertosoares/Projetos/dundiee-rewardss
+# configfile: pyproject.toml
+# testpaths: tests, integration
+# plugins: forked-1.6.0
+# collected 6 items
+#
+# tests/test_load.py::test_load_positive_has_2_people PASSED
+# tests/test_load.py::test_load_positive_first_name_starts_with_b PASSED
+# integration/test_load.py::test_load_positive_call_load_command PASSED
+# integration/test_load.py::
+# test_load_negative_call_load_command_with_wrong_params[loady] PASSED
+# integration/test_load.py::
+# test_load_negative_call_load_command_with_wrong_params[carrega] PASSED
+# integration/test_load.py::
+# test_load_negative_call_load_command_with_wrong_params[start] PASSED
+#
+# ============================ 3 passed in 0.11s =========================
