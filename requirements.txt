@@ -1,2 +1,6 @@
-#Existem ferramentas para gerenciar as denpendencias no nivel de checagem, 
+# Existem ferramentas para gerenciar as denpendencias no nivel de checagem, 
 # auditoria e seguranca. Ex: dependabot
+click
+rich
+rich-click
+

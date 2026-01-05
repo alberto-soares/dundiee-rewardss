@@ -49,10 +49,8 @@ from .constants import PEOPLE_FILE
 #    file_.remove()
 
 # *********************************************************
-
-
-@pytest.mark.unit
-@pytest.mark.high
+# @pytest.mark.unit
+# @pytest.mark.high
 # def test_load(request):
 # def test_load():
 # def test_load(create_new_file): # so essa funcao cria o new_file
@@ -75,6 +73,10 @@ from .constants import PEOPLE_FILE
 #    assert len(load(PEOPLE_FILE)) == 3
 #    breakpoint()
 #    assert load(PEOPLE_FILE)[0][0] == 'B'
+
+
+@pytest.mark.unit
+@pytest.mark.high
 def test_load_positive_has_2_people(request):
     """Test function load"""
     assert len(load(PEOPLE_FILE)) == 3  # --junit.xml fileerroem /tmp/erro.xml
@@ -95,10 +97,10 @@ def test_load_positive_has_2_people(request):
 
 @pytest.mark.unit
 @pytest.mark.high
-def test_load_positive_first_name_starts_with_b(request):
+def test_load_positive_first_name_starts_with_j(request):
     """Test function load"""
     #    assert load(PEOPLE_FILE)[0][0] == 'B'
-    assert load(PEOPLE_FILE)[0][0] == "J"
+    assert load(PEOPLE_FILE)[0]["name"] == "Jim Halpert"
 
 
 # ****************************************************

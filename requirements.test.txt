@@ -1,4 +1,5 @@
 pytest # exemplo de test runner
+pytest-forked  # isolamento total de processos para testes
 flake8
 pyproject-flake8
 black

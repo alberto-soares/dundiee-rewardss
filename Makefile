@@ -48,7 +48,7 @@ fmt:
 
 test:
 #	@.venv/bin/pytest -vv -s tests/ ==> antes da configuracao do pytest
-	@.venv/bin/pytest -s
+	@.venv/bin/pytest -s --forked
 
 #testci:
 #	 @pytest -v --junitxml=test-result.xml
@@ -62,7 +62,7 @@ test:
 watch:
 #	@ls **/*.py | entr pytest
 #	@.venv/bin/ptw -- -vv -s tests/ ==> antes da configuracao do pytest
-	@.venv/bin/ptw -- -vv -s
+	@.venv/bin/ptw -- -vv -s --forked
 # *******************************************************
 # * Apos alteracao para @.venv/bin/ptw -- -vv -s tests/ *
 # *******************************************************
