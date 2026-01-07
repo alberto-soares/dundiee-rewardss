@@ -4,6 +4,8 @@
 # * Etapa 1 *
 # ***********
 
+import json
+
 import pkg_resources  # captura a versao do projeto
 
 # import argparse
@@ -99,6 +101,48 @@ def load(filepath):  # injecao de dependencia
 
     console = Console()
     console.print(table)
+
+
+@main.command()
+@click.option("--dept", required=False)
+@click.option("--email", required=False)
+@click.option("--output", default=None)
+def show(output, **query):
+    """Shows informatio about users"""
+    result = core.read(**query)
+    if output:
+        with open(output, "w") as output_file:
+            output_file.write(json.dumps(result))
+
+    if not result:
+        print("Nothing to show")
+
+    table = Table(title="Dunder Mifflin Report")
+    for key in result[0]:
+        table.add_column(key.title(), style="magenta")
+
+    for person in result:
+        table.add_row(*[str(value) for value in person.values()])  # lereg
+
+    console = Console()
+    console.print(table)
+
+
+@main.command()
+@click.argument("value", type=click.INT, required=True)
+@click.option(
+    "--operation", default="add", type=click.Choice(["add", "subtract"])
+)
+@click.option("--dept", required=False)
+@click.option("--email", required=False)
+@click.pass_context
+def add(ctx, value, operation, **query):
+    """Add or subtract points to the user or dept"""
+    if operation == "subtract":
+        value = -value
+
+    core.add(value, **query)
+    ctx.invoke(show, **query)
 
 
 #
@@ -299,11 +343,33 @@ def load(filepath):  # injecao de dependencia
 # Refrain from using this package or pin to Setuptools<81.
 # import pkg_resources  # captura a versao do projeto
 #                    Dunder Mifflin Associates
-# ┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-# ┃ name           ┃ dept      ┃ role     ┃ created ┃ e-mail                     ┃
-# ┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-# │ Jim Halpert    │ Sales     │ Salesman │ True    │ jim@dundlermifflin.com     │
-# │ Dwight Schrute │ Sales     │ Manager  │ True    │ schrute@dundlermifflin.com │
-# │ Gabe Lewis     │ Directory │ Manager  │ True    │ glewis@dundlermifflin.com  │
-# └────────────────┴───────────┴──────────┴─────────┴────────────────────────────┘
+# ┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃ name           ┃ dept      ┃ role   ┃ created ┃ e-mail                   ┃
+# ┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+# │ Jim Halpert    │ Sales     │Salesman│ True    │jim@dundlermifflin.com    │
+# │ Dwight Schrute │ Sales     │ Manager│ True    │schrute@dundlermifflin.com│
+# │ Gabe Lewis     │ Directory │ Manager│ True    │glewis@dundlermifflin.com │
+# └────────────────┴───────────┴────────┴─────────┴──────────────────────────┘
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
+#
+# **********************************************************************
+# * Execucao apos alteracao do registro do Gabe Lewis no BD de entrada *
+# **********************************************************************
+#
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
+# dundie load assets/people.csv
+# /Users/albertosoares/Projetos/dundiee-rewardss/dundie/cli.py:7:
+# UserWarning: pkg_resources is deprecated as an API.
+# See https://setuptools.pypa.io/en/latest/pkg_resources.html.
+# The pkg_resources package is slated for removal as early as 2025-11-30.
+# Refrain from using this package or pin to Setuptools<81.
+# import pkg_resources  # captura a versao do projeto
+#                    Dunder Mifflin Associates
+# ┏━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃ name           ┃ dept    ┃ role     ┃ created ┃ e-mail                    ┃
+# ┡━━━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+# │ Jim Halpert    │ Sales   │ Salesman │ False   │ jim@dundlermifflin.com    │
+# │ Dwight Schrute │ Sales   │ Manager  │ False   │ schrute@dundlermifflin.com│
+# │ Gabe Lewis     │ C-Level │ CEO.     │ False   │ glewis@dundlermifflin.com │
+# └────────────────┴─────────┴──────────┴─────────┴─────────────────────────━─┘
 # (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %

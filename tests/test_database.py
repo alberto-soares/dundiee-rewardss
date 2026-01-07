@@ -2,7 +2,7 @@
 
 import pytest
 
-from dundie.database import EMPTY_DB, add_person, commit, connect
+from dundie.database import EMPTY_DB, add_movement, add_person, commit, connect
 
 
 @pytest.mark.unit
@@ -46,3 +46,27 @@ def test_negative_add_person_invalid_email():
     """Module"""
     with pytest.raises(ValueError):
         add_person({}, ".@bla", {})
+
+
+@pytest.mark.unit
+def test_add_or_remove_points_for_person():
+    """Module"""
+    pk = "joe@doe.com"
+    data = {"name": "Joe Doe", "role": "Saleman", "dept": "Sales"}
+    db_ = connect()
+    _, created = add_person(db_, pk, data)
+    assert created is True
+    commit(db_)
+
+    db_ = connect()
+    before = db_["balance"][pk]
+
+    add_movement(db_, pk, -100, "manager")
+    commit(db_)
+
+    db_ = connect()
+    after = db_["balance"][pk]
+
+    assert after == before - 100
+    assert after == 400
+    assert before == 500

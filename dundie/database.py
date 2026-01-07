@@ -201,3 +201,60 @@ def add_movement(db_, pk, value, actor="system"):
 # Out[15]: 660
 #
 # In [17]: exit
+#
+# ******************************************************************
+# * Testando dundie add --dept|--to --value=100 antes de criar add *
+# ******************************************************************
+#
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
+# dundie add 100 --email=jim@dundlermifflin.com
+# /Users/albertosoares/Projetos/dundiee-rewardss/dundie/cli.py:7:
+# UserWarning: pkg_resources is deprecated as an API.
+# See https://setuptools.pypa.io/en/latest/pkg_resources.html.
+# The pkg_resources package is slated for removal as early as
+# 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+#  import pkg_resources  # captura a versao do projeto
+#
+# Usage: dundie [OPTIONS] COMMAND [ARGS]...
+#
+# Try 'dundie --help' for help
+# ╭─ Error ─────────────────────────────────────────────────────────────╮
+# │ No such command 'add'.                                              │
+# ╰─────────────────────────────────────────────────────────────────────╯
+#
+#
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
+# dundie add 100 --dept=Sales
+# /Users/albertosoares/Projetos/dundiee-rewardss/dundie/cli.py:7:
+# UserWarning: pkg_resources is deprecated as an API.
+# See https://setuptools.pypa.io/en/latest/pkg_resources.html.
+# The pkg_resources package is slated for removal as early as
+# 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+#  import pkg_resources  # captura a versao do projeto
+#
+# Usage: dundie [OPTIONS] COMMAND [ARGS]...
+#
+# Try 'dundie --help' for help
+# ╭─ Error ─────────────────────────────────────────────────────────────╮
+# │ No such command 'add'.                                              │
+# ╰─────────────────────────────────────────────────────────────────────╯
+#
+# ********************************************************************
+# * Testando dundie show --dept|--to --value=100 antes de criar show *
+# ********************************************************************
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
+# dundie show --dept=Sales
+# /Users/albertosoares/Projetos/dundiee-rewardss/dundie/cli.py:7:
+# UserWarning: pkg_resources is deprecated as an API.
+# See https://setuptools.pypa.io/en/latest/pkg_resources.html.
+# The pkg_resources package is slated for removal as early as
+# 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+#  import pkg_resources  # captura a versao do projeto
+#
+# Usage: dundie [OPTIONS] COMMAND [ARGS]...
+#
+# Try 'dundie --help' for help
+# ╭─ Error ─────────────────────────────────────────────────────────────╮
+# │ No such command 'show'.                                             │
+# ╰─────────────────────────────────────────────────────────────────────╯
+#

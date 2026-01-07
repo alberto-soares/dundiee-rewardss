@@ -3,9 +3,10 @@
 # ***********
 
 """Core module of dundie"""
+import os
 from csv import reader  # cria um objeto para carregar o arquivo
 
-from dundie.database import add_person, commit, connect
+from dundie.database import add_movement, add_person, commit, connect
 from dundie.utils.log import get_logger  # import absoluto
 
 # from .utils.log import get_logger  # import relativo
@@ -50,6 +51,48 @@ def load(filepath):
 
     commit(db_)
     return people
+
+
+def read(**query):
+    """Read data from db and filters using query
+
+    read(email="joe@doe.com")
+    """
+    db_ = connect()
+    return_data = []
+    for pk, data in db_["people"].items():
+
+        dept = query.get("dept")
+        if dept and dept != data["dept"]:
+            continue
+
+        # WALRUS / Assigment Expression - a partir do python 3.8
+        if (email := query.get("email")) and email != pk:
+            continue
+
+        return_data.append(
+            {
+                "email": pk,
+                "balance": db_["balance"][pk],
+                "last_movement": db_["movement"][pk][-1]["date"],
+                **data,
+            }
+        )
+    return return_data
+
+
+def add(value, **query):
+    """Add value to each record on query"""
+    people = read(**query)
+    #    breakpoint()
+    if not people:
+        raise RuntimeError("Not Found")
+
+    db_ = connect()
+    user = os.getenv("USER")
+    for person in people:
+        add_movement(db_, person["email"], value, user)
+    commit(db_)
 
 
 # subcommands = {
@@ -270,3 +313,51 @@ def load(filepath):
 #  ['Gabe Lewis', ' Directory', ' Manager', ' glewis@dundlermifflin.com ']]
 #
 # In [4]: exit
+#
+# *****************************************************************************
+# * Execucao da apresentacao dos dados do BD no terminal apos criacao do SHOW *
+# *****************************************************************************
+#
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
+# dundie show --email=jim@dundlermifflin.com
+# /Users/albertosoares/Projetos/dundiee-rewardss/dundie/cli.py:7:
+# UserWarning: pkg_resources is deprecated as an API.
+# See https://setuptools.pypa.io/en/latest/pkg_resources.html.
+# The pkg_resources package is slated for removal as early as
+# 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+#  import pkg_resources  # captura a versao do projeto
+#
+#                          Dunder Mifflin Report
+# ┏━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━┳━━━━━━━━┓
+# ┃ Email                ┃ Balance ┃ Last_Movement┃ Name      ┃ Dept┃ Role   ┃
+# ┡━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━╇━━━━━━━━┩
+# │jim@dundlermifflin.com│ 500     │ 2026-01-05...│Jim Halpert│Sales│Salesman│
+# └──────────────────────┴─────────┴──────────────┴───────────┴─────┴────────┘
+#
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
+# dundie show
+# /Users/albertosoares/Projetos/dundiee-rewardss/dundie/cli.py:7:
+# UserWarning: pkg_resources is deprecated as an API.
+# See https://setuptools.pypa.io/en/latest/pkg_resources.html.
+# The pkg_resources package is slated for removal as early as
+# 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+#  import pkg_resources  # captura a versao do projeto
+#
+#                          Dunder Mifflin Report
+# ┏━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━┳━━━━━━━━┓
+# ┃ Email                ┃ Balance ┃ Last_Movement┃ Name      ┃ Dept┃ Role   ┃
+# ┡━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━╇━━━━━━━━┩
+# │jim@dundlermiffli...  │ 500     │ 2026-01-05...│Jim Halpert│Sales│Salesman│
+# │schrute@dundlermi...  │ 100     │ 2026-01-05...│Dwight Sc..│Sales│Manager │
+# │glewis@dundlermi...   │ 100     │ 2026-01-05...│Gabe Lewis │C-L..│CEO     │
+# └──────────────────────┴─────────┴──────────────┴───────────┴─────┴────────┘
+# (.venv) (base) albertosoares@MacBook-Pro-de-Alberto dundiee-rewardss %
+# dundie show --dept=Sales
+#
+#                          Dunder Mifflin Report
+# ┏━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━┳━━━━━━━━┓
+# ┃ Email                ┃ Balance ┃ Last_Movement┃ Name      ┃ Dept┃ Role   ┃
+# ┡━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━╇━━━━━━━━┩
+# │jim@dundlermiffli...  │ 500     │ 2026-01-05...│Jim Halpert│Sales│Salesman│
+# │schrute@dundlermi...  │ 100     │ 2026-01-05...│Dwight Sc..│Sales│Manager │
+# └──────────────────────┴─────────┴──────────────┴───────────┴─────┴────────┘

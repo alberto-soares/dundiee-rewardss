@@ -17,8 +17,8 @@
         }
     },
     "balance": {
-        "jim@dundlermifflin.com": 500,
-        "schrute@dundlermifflin.com": 100,
+        "jim@dundlermifflin.com": 800,
+        "schrute@dundlermifflin.com": 400,
         "glewis@dundlermifflin.com": 100
     },
     "movement": {
@@ -27,6 +27,116 @@
                 "date": "2026-01-05T13:37:55.492604",
                 "actor": "system",
                 "value": 500
+            },
+            {
+                "date": "2026-01-06T20:16:39.300223",
+                "actor": "albertosoares",
+                "value": 30
+            },
+            {
+                "date": "2026-01-06T20:18:28.389814",
+                "actor": "albertosoares",
+                "value": 332
+            },
+            {
+                "date": "2026-01-06T22:18:49.655277",
+                "actor": "albertosoares",
+                "value": 30
+            },
+            {
+                "date": "2026-01-06T22:52:21.247045",
+                "actor": "albertosoares",
+                "value": -30
+            },
+            {
+                "date": "2026-01-06T22:53:06.065671",
+                "actor": "albertosoares",
+                "value": -30
+            },
+            {
+                "date": "2026-01-06T22:53:56.820217",
+                "actor": "albertosoares",
+                "value": -30
+            },
+            {
+                "date": "2026-01-06T22:55:55.247314",
+                "actor": "albertosoares",
+                "value": 30
+            },
+            {
+                "date": "2026-01-06T23:05:46.753828",
+                "actor": "albertosoares",
+                "value": 32
+            },
+            {
+                "date": "2026-01-06T23:07:14.412451",
+                "actor": "albertosoares",
+                "value": 32
+            },
+            {
+                "date": "2026-01-06T23:12:35.748553",
+                "actor": "albertosoares",
+                "value": -96
+            },
+            {
+                "date": "2026-01-07T14:32:40.521628",
+                "actor": "albertosoares",
+                "value": 32
+            },
+            {
+                "date": "2026-01-07T14:33:24.817692",
+                "actor": "albertosoares",
+                "value": -32
+            },
+            {
+                "date": "2026-01-07T14:35:31.363308",
+                "actor": "albertosoares",
+                "value": 32
+            },
+            {
+                "date": "2026-01-07T14:35:52.832942",
+                "actor": "albertosoares",
+                "value": -32
+            },
+            {
+                "date": "2026-01-07T14:42:20.399856",
+                "actor": "albertosoares",
+                "value": 32
+            },
+            {
+                "date": "2026-01-07T14:42:39.038358",
+                "actor": "albertosoares",
+                "value": -32
+            },
+            {
+                "date": "2026-01-07T15:16:47.567486",
+                "actor": "albertosoares",
+                "value": 32
+            },
+            {
+                "date": "2026-01-07T15:17:09.414971",
+                "actor": "albertosoares",
+                "value": -32
+            },
+            {
+                "date": "2026-01-07T15:42:50.914984",
+                "actor": "albertosoares",
+                "value": 32
+            },
+            {
+                "date": "2026-01-07T15:43:11.094066",
+                "actor": "albertosoares",
+                "value": -32
+            },
+            {
+                "date": "2026-01-07T15:45:50.885537",
+                "actor": "albertosoares",
+                "value": 32
+            },
+            {
+                "date": "2026-01-07T15:46:04.969746",
+                "actor": "albertosoares",
+                "value": -32
             }
         ],
         "schrute@dundlermifflin.com": [
@@ -34,6 +144,116 @@
                 "date": "2026-01-05T13:37:55.495904",
                 "actor": "system",
                 "value": 100
+            },
+            {
+                "date": "2026-01-06T20:16:39.300231",
+                "actor": "albertosoares",
+                "value": 30
+            },
+            {
+                "date": "2026-01-06T20:18:28.389824",
+                "actor": "albertosoares",
+                "value": 332
+            },
+            {
+                "date": "2026-01-06T22:18:49.655286",
+                "actor": "albertosoares",
+                "value": 30
+            },
+            {
+                "date": "2026-01-06T22:52:21.247058",
+                "actor": "albertosoares",
+                "value": -30
+            },
+            {
+                "date": "2026-01-06T22:53:06.065679",
+                "actor": "albertosoares",
+                "value": -30
+            },
+            {
+                "date": "2026-01-06T22:53:56.820225",
+                "actor": "albertosoares",
+                "value": -30
+            },
+            {
+                "date": "2026-01-06T22:55:55.247324",
+                "actor": "albertosoares",
+                "value": 30
+            },
+            {
+                "date": "2026-01-06T23:05:46.753838",
+                "actor": "albertosoares",
+                "value": 32
+            },
+            {
+                "date": "2026-01-06T23:07:14.412461",
+                "actor": "albertosoares",
+                "value": 32
+            },
+            {
+                "date": "2026-01-06T23:12:35.748562",
+                "actor": "albertosoares",
+                "value": -96
+            },
+            {
+                "date": "2026-01-07T14:32:40.521636",
+                "actor": "albertosoares",
+                "value": 32
+            },
+            {
+                "date": "2026-01-07T14:33:24.817700",
+                "actor": "albertosoares",
+                "value": -32
+            },
+            {
+                "date": "2026-01-07T14:35:31.363316",
+                "actor": "albertosoares",
+                "value": 32
+            },
+            {
+                "date": "2026-01-07T14:35:52.832950",
+                "actor": "albertosoares",
+                "value": -32
+            },
+            {
+                "date": "2026-01-07T14:42:20.399864",
+                "actor": "albertosoares",
+                "value": 32
+            },
+            {
+                "date": "2026-01-07T14:42:39.038366",
+                "actor": "albertosoares",
+                "value": -32
+            },
+            {
+                "date": "2026-01-07T15:16:47.567495",
+                "actor": "albertosoares",
+                "value": 32
+            },
+            {
+                "date": "2026-01-07T15:17:09.414979",
+                "actor": "albertosoares",
+                "value": -32
+            },
+            {
+                "date": "2026-01-07T15:42:50.914992",
+                "actor": "albertosoares",
+                "value": 32
+            },
+            {
+                "date": "2026-01-07T15:43:11.094073",
+                "actor": "albertosoares",
+                "value": -32
+            },
+            {
+                "date": "2026-01-07T15:45:50.885547",
+                "actor": "albertosoares",
+                "value": 32
+            },
+            {
+                "date": "2026-01-07T15:46:04.969754",
+                "actor": "albertosoares",
+                "value": -32
             }
         ],
         "glewis@dundlermifflin.com": [
